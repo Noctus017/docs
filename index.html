@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projeto Lar Carioca — Doações</title>
+  <link rel="stylesheet" href="./style.css" />
+  <!-- API do backend hospedado (Render/Railway/Fly etc.) -->
+  <meta name="api-base" content="https://SEU-BACKEND.onrender.com" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1 class="brand">Projeto Lar Carioca</h1>
+      <nav class="nav">
+        <a href="#doar">Doar</a>
+        <a href="#lar-carioca">Lar Carioca</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="lar-carioca" class="card hero">
+      <h2>Lar Carioca</h2>
+      <p>
+        O <strong>Projeto Lar Carioca</strong> acolhe e apoia famílias em situação de vulnerabilidade
+        no Rio de Janeiro. Sua doação mantém nossas ações vivas e chegando a quem mais precisa.
+      </p>
+    </section>
+
+    <section id="doar" class="card donate">
+      <h2>Faça sua doação 💙</h2>
+      <p>Escolha um valor ou digite um valor personalizado.</p>
+
+      <div class="amounts">
+        <button class="amount" data-amount="10">R$ 10</button>
+        <button class="amount" data-amount="20">R$ 20</button>
+        <button class="amount" data-amount="50">R$ 50</button>
+        <button class="amount" data-amount="100">R$ 100</button>
+      </div>
+
+      <div class="custom">
+        <label for="customAmount">Outro valor</label>
+        <div class="input">
+          <span>R$</span>
+          <input id="customAmount" inputmode="decimal" placeholder="Ex.: 35,00" />
+        </div>
+      </div>
+
+      <p class="selected">Você vai doar: <strong>R$ <span id="sel">20,00</span></strong></p>
+
+      <div class="pay-tabs">
+        <button class="tab active" data-tab="card">Cartão</button>
+        <button class="tab" data-tab="pix">PIX (offline)</button>
+      </div>
+
+      <div class="pay-panel" id="panel-card">
+        <div class="actions">
+          <button id="btnCard" class="primary">Pagar com cartão (Stripe)</button>
+        </div>
+        <p class="disclaimer">Transação segura via Stripe. Não armazenamos dados do seu cartão.</p>
+      </div>
+
+      <div class="pay-panel hidden" id="panel-pix">
+        <div class="pix-box">
+          <div class="pix-actions">
+            <button id="btnPix" class="primary">Gerar QR Code PIX</button>
+            <span class="pix-key">
+              Chave PIX: <code id="pixKeyLabel">9a6c4f0a-8bb3-40ca-b106-81fe1d90a3f6</code>
+            </span>
+          </div>
+
+          <div class="qr-wrapper" style="align-items:start;">
+            <div class="qr">
+              <img id="qrImg" alt="QR Code PIX" style="max-width:100%; height:auto; display:none;" />
+              <span id="qrPlaceholder" class="muted">O QR vai aparecer aqui…</span>
+            </div>
+            <div class="qr-info">
+              <p>Escaneie o QR Code acima no seu app do banco <strong>ou</strong> use “copia e cola”:</p>
+              <textarea id="pixCopy" class="copyarea" rows="6" readonly></textarea>
+              <button id="btnCopy" class="ghost">Copiar código PIX</button>
+              <small class="muted">Dica: após copiar, abra seu app bancário &gt; PIX &gt; Colar código.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="card">
+      <h2>Contato</h2>
+      <p>E-mail: contato@larcarioca.org</p>
+      <p>Cidade: Rio de Janeiro - RJ</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Projeto Lar Carioca. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

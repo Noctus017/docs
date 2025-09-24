@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Doação concluída</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card" style="max-width:680px;margin-top:48px;">
+    <h1>🎉 Obrigado pela sua doação!</h1>
+    <p>Recebemos sua contribuição com sucesso.</p>
+    <p id="valor"></p>
+    <a class="primary" href="index.html" style="display:inline-block;margin-top:16px;">Voltar ao início</a>
+  </main>
+
+  <script>
+    const p = new URLSearchParams(location.search);
+    const v = p.get('v');
+    if (v) document.getElementById('valor').textContent = `Valor: R$ ${v}`;
+  </script>
+</body>
+</html>
